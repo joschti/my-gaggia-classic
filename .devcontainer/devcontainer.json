@@ -1,0 +1,45 @@
+// {
+//     "name": "My Gaggia Classic Dev Env",
+//     "build": {
+//         "context": "..",
+//         "dockerfile": "Dockerfile"
+//     },
+//     "runArgs": [
+//         "--device=/dev/ttyACM0",
+//         "--privileged"
+//     ]
+//     // USBIP Connect
+//     // C/C++?
+// }
+{
+    "name": "PlatformIO (Community)",
+    "dockerFile": "Dockerfile",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh"
+            },
+            "extensions": [
+                "ms-vscode.cpptools",
+                "platformio.platformio-ide"
+            ]
+        }
+    },
+    "forwardPorts": [
+        8008
+    ],
+    "mounts": [
+        "source=/dev/,target=/dev/,type=bind,consistency=consistent"
+    ],
+    "runArgs": [
+        "--device=/dev/ttyACM0",
+        "--privileged"
+    ],
+    "features": {
+        "ghcr.io/devcontainers/features/python:1": {},
+    },
+    "postAttachCommand": "sudo service udev restart",
+    // target=<folder that we have in WSL>
+    // "workspaceMount": "source=${localWorkspaceFolder},target=/home/node,type=bind",
+    // "workspaceFolder": "/home/node"
+}
