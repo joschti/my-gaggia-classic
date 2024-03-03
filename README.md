@@ -2,7 +2,9 @@
 
 __TOC__
 
-## Setting up environment
+## Developement environment 
+
+### Setting up
 
 1. Open WSL and run
     - `sudo service docker start`
@@ -15,6 +17,16 @@ __TOC__
 WSL usbip: error: Attach Request for 2-1 failed - Device busy (exported)
 usbipd: warning: The device appears to be used by Windows; stop the software using the device, or bind the device using the '--force' option.
 ```
+
+### Open
+
+1. Open WSL and open VS code via
+    - `code path-to-project-folder`
+2. Press `CTRL`+`SHIFT`+`P` and choose `Dev Containers: Reopen in Container`
+
+### PIO tasks
+
+Most actions are done via tasks or via command line instruction e.g. compilation, upload build to hardware, etc. Platform IO provides and deals with these things.
 
 ## Firmware
 
