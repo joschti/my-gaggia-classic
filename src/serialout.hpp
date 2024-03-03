@@ -16,7 +16,7 @@ public:
     if (this->timeHandler(currMs))
     {
       char buffer[70];
-      sprintf(buffer, "temp %4.2f°C\n", temp);
+      sprintf(buffer, "%4.2f\n", temp);
       Serial.print(buffer);
     }
   }

@@ -35,6 +35,10 @@ Note 2: TIMER1's `NRF_TIMER_CC_CHANNEL0` seems to be broken and often has outage
 ### Include NRF driver source files
 In the Arduino NRF SDK package, the NRF driver source files are not present. Therefore, these files are copied from the SDK to the `src/drv` folder.
 
+## Data logging via serial output
+
+Use `pio device monitor -f default -f log2file` to log the serial output to a file. For more information about the format, check out `serialout.hpp` or [pio device monitor filter options](https://docs.platformio.org/en/latest/core/userguide/device/cmd_monitor.html#cmd-device-monitor-filters).
+
 ## Measurements on Gaggia Classic
 
 Heating:
@@ -44,4 +48,4 @@ Heating:
 
 ## TODO
 - Devcontainer clean up
-- Update measurements w
+- Update measurements
