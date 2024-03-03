@@ -31,3 +31,5 @@ RUN <<EOF
   usermod -a -G plugdev node 
 
 EOF
+
+# todo: need to copy ssh files, and change access writes with chmod 600 <file>
