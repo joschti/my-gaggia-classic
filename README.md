@@ -2,7 +2,7 @@
 
 __TOC__
 
-## Developement environment 
+## Development environment 
 
 ### Setting up
 
