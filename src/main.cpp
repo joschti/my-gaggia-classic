@@ -31,7 +31,6 @@
 
 // Intervals
 #define ALIVE_LED_INTERVAL 1000
-#define CTRL_HEATER_INTERVAL 100 // cannot be smaller than 20 ms because SSR operates on this rate
 #ifdef SERIALOUT_ENABLE
 #define SERIAL_OUTPUT_INTERVAL 500
 #endif
@@ -49,7 +48,7 @@ static void smtGpioteInterruptHandler(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity
 //-----------------------------------------------------------------
 /* Global variables */
 AliveLed aliveLed(ALIVE_LED_PIN, ALIVE_LED_INTERVAL);
-ControlHeater ctrlHeater(CTRL_HEATER_PIN, CTRL_HEATER_TWO_POINT, CTRL_HEATER_INTERVAL);
+ControlHeater ctrlHeater(CTRL_HEATER_PIN, CTRL_HEATER_TWO_POINT);
 #ifdef SERIALOUT_ENABLE
 SerialOut serialOut(SERIAL_OUTPUT_INTERVAL);
 #endif
