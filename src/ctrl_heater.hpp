@@ -7,10 +7,10 @@
 
 typedef enum
 {
-  CTRL_HEATER_T_TWO_POINT,
-  CTRL_HEATER_T_P,
-  CTRL_HEATER_T_PID,
-  CTRL_HEATER_T_KALMAN
+  CTRL_HEATER_TWO_POINT,
+  CTRL_HEATER_P,
+  CTRL_HEATER_PID,
+  CTRL_HEATER_KALMAN
 } ctrl_heater_t;
 
 class ControlHeater : public MyTask
@@ -24,16 +24,16 @@ public:
     {
       switch (this->type)
       {
-      case CTRL_HEATER_T_TWO_POINT:
+      case CTRL_HEATER_TWO_POINT:
         ctrl_two_point(temp);
         break;
-      case CTRL_HEATER_T_P:
+      case CTRL_HEATER_P:
         ctrl_proportional(temp);
         break;
-      case CTRL_HEATER_T_PID:
+      case CTRL_HEATER_PID:
         // not implemented yet
         break;
-      case CTRL_HEATER_T_KALMAN:
+      case CTRL_HEATER_KALMAN:
         // not implemented yet
         break;
       }

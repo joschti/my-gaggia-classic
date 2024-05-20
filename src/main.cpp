@@ -49,7 +49,7 @@ static void smtGpioteInterruptHandler(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity
 //-----------------------------------------------------------------
 /* Global variables */
 AliveLed aliveLed(ALIVE_LED_PIN, ALIVE_LED_INTERVAL);
-ControlHeater ctrlHeater(CTRL_HEATER_PIN, CTRL_HEATER_T_TWO_POINT, CTRL_HEATER_INTERVAL);
+ControlHeater ctrlHeater(CTRL_HEATER_PIN, CTRL_HEATER_TWO_POINT, CTRL_HEATER_INTERVAL);
 #ifdef SERIALOUT_ENABLE
 SerialOut serialOut(SERIAL_OUTPUT_INTERVAL);
 #endif
