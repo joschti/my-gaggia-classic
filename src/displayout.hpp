@@ -6,59 +6,80 @@
 
 #include <Wire.h>
 #include <Adafruit_GFX.h>
-#include <Adafruit_SH110X.h>
+#include <Adafruit_ILI9341.h>
 
-// Adafruit_SH1107 display = Adafruit_SH1107(64, 128, &Wire);
+//-----------------------------------------------------------------
+/* Defines */
+// Pins
+// #define DISPLAY_IO_MOSI P1_1
+// #define DISPLAY_IO_MISO P1_8
+// #define DISPLAY_IO_SCLK P0_13
+// #define DISPLAY_IO_DC P0_27
+// #define DISPLAY_IO_CS P1_2
+// #define DISPLAY_IO_RST P0_21
+#define DISPLAY_IO_DC 9 // library cannot deal with PinName objects
+#define DISPLAY_IO_CS 10
 
+// Others
+#define DISPLAY_COLOR_BW ILI9341_BLACK
+#define DISPLAY_COLOR_TEXT ILI9341_WHITE
+
+//-----------------------------------------------------------------
+/* Classes */
 class DisplayOut : public MyTask
 {
 public:
   DisplayOut(uint32_t msUpdateRate) : MyTask(msUpdateRate),
-                                      display(64, 128, &Wire)
+                                      display(DISPLAY_IO_CS, DISPLAY_IO_DC)
   {
   }
 
   void init()
   {
-    delay(250);                      // wait for the OLED to power up
-    this->display.begin(0x3C, true); // Address 0x3C default
+    // init
+    this->display.begin();
 
-    // Show image buffer on the display hardware.
-    // Since the buffer is intialized with an Adafruit splashscreen
-    // internally, this will display the splashscreen.
-    this->display.display();
-    delay(1000);
+    // black start screen
+    this->display.fillScreen(DISPLAY_COLOR_BW);
 
-    // Clear the buffer.
-    this->display.clearDisplay();
-    this->display.display();
-
+    // settings
+    this->display.setTextSize(3);
+    this->display.setTextColor(DISPLAY_COLOR_TEXT);
     this->display.setRotation(1);
-    // Serial.println("Button test");
 
-    // text display tests
-    this->display.setTextSize(2);
-    this->display.setTextColor(SH110X_WHITE);
+    // static display
     this->display.setCursor(0, 0);
+    this->display.println("My Gaggia Classic");
+    this->display.setCursor(0, 50);
+    this->display.println("Temperature:");
   }
 
   void taskHandler(uint32_t currMs, float temp)
   {
     if (this->timeHandler(currMs))
     {
-      this->display.clearDisplay();
-      this->display.setCursor(0, 0);
-      char buffer[30];
-      sprintf(buffer, "Temp\n%4.2f %cC", temp, 0xF7);
-      this->display.print(buffer);
-      delay(10);
-      yield();
-      this->display.display();
+      // we only handle variable objects for execution speed.
+      // display is slow.
+
+      ////////////////////////////////////////////////////////////////
+      // display temperature
+      ////////////////////////////////////////////////////////////////
+      // remove temperature value from display
+      this->display.setCursor(0, 75);
+      this->display.setTextColor(DISPLAY_COLOR_BW);
+      this->display.print(this->tempStrBuffer);
+
+      // write temperature value onto display
+      this->display.setCursor(0, 75);
+      this->display.setTextColor(DISPLAY_COLOR_TEXT);
+      sprintf(this->tempStrBuffer, "%4.2f %cC", temp, 0xF7);
+      this->display.print(this->tempStrBuffer);
     }
   }
 
 private:
-  Adafruit_SH1107 display;
+  Adafruit_ILI9341 display;
+  char tempStrBuffer[20];
 };
 
 #endif
