@@ -1,6 +1,8 @@
 #ifndef _DISPLAYOUT_HPP_
 #define _DISPLAYOUT_HPP_
 
+#ifdef DISPLAYOUT_ENABLE
+
 #include "Arduino.h"
 #include "mytask.hpp"
 
@@ -81,5 +83,7 @@ private:
   Adafruit_ILI9341 display;
   char tempStrBuffer[20];
 };
+
+#endif
 
 #endif
