@@ -22,6 +22,11 @@ public:
     return false;
   }
 
+  uint32_t getMsUpdateRate()
+  {
+    return this->msUpdateRate;
+  }
+
 private:
   uint32_t msUpdateRate;
   uint32_t prevMsUpdate;
