@@ -14,7 +14,9 @@
 #include "displayout.hpp"
 #include "drv_smt172.hpp"
 #include "ctrl_heater.hpp"
+#ifdef BLE_ENABLE
 #include "myble.hpp"
+#endif
 
 //-----------------------------------------------------------------
 /* Defines */
@@ -31,7 +33,9 @@
 #define SERIAL_OUTPUT_INTERVAL 500
 #endif
 #define DISPLAY_OUTPUT_INTERVAL 1000
+#ifdef BLE_ENABLE
 #define BLE_OUTPUT_INTERVAL 500
+#endif
 #define CTRL_HEATER_INTERVAL 100 // cannot be smaller than 20 ms because SSR operates on this rate
 
 //-----------------------------------------------------------------
@@ -46,7 +50,9 @@ SerialOut serialOut(SERIAL_OUTPUT_INTERVAL);
 #endif
 DisplayOut displayOut(DISPLAY_OUTPUT_INTERVAL);
 DrvSmt172 smt(SMT172_RISE_PIN, SMT172_FALL_PIN, SMT172_TIMER_INST, smtGpioteInterruptHandler);
+#ifdef BLE_ENABLE
 MyBle myble(BLE_OUTPUT_INTERVAL);
+#endif
 ControlHeater ctrlHeater(CTRL_HEATER_PIN, CTRL_HEATER_T_TWO_POINT, CTRL_HEATER_INTERVAL);
 
 //-----------------------------------------------------------------
@@ -58,7 +64,9 @@ void setup()
   Serial.begin(115200);
 #endif
   displayOut.init();
+#ifdef BLE_ENABLE
   myble.init();
+#endif
 }
 
 void loop()
@@ -74,19 +82,21 @@ void loop()
 #endif
   }
 
-  aliveLed.taskHandler(currMs);
-
   float temp = smt.getTemperature();
+
+  aliveLed.taskHandler(currMs);
+#ifdef SERIALOUT_ENABLE
+  serialOut.taskHandler(currMs, interfaceBle.payload.temp, ctrlHeater.isHeaterActive());
+#endif
+  displayOut.taskHandler(currMs, interfaceBle.payload.temp);
+#ifdef BLE_ENABLE
   if (temp != interfaceBle.payload.temp)
   {
     interfaceBle.payload.temp = temp;
     interfaceBle.update.temp = true;
   }
-#ifdef SERIALOUT_ENABLE
-  serialOut.taskHandler(currMs, interfaceBle.payload.temp, ctrlHeater.isHeaterActive());
-#endif
-  displayOut.taskHandler(currMs, interfaceBle.payload.temp);
   myble.taskHandler(currMs, interfaceBle);
+#endif
   ctrlHeater.taskHandler(currMs, temp);
 
   lastMs = currMs;

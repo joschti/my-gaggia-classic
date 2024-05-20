@@ -1,3 +1,5 @@
+#ifdef BLE_ENABLE
+
 #include "myble.hpp"
 
 MyBle::MyBle(uint32_t msUpdateRate)
@@ -67,3 +69,5 @@ void MyBle::taskHandler(uint32_t currMs, interface_ble_t interface)
         digitalWrite(LED_BUILTIN, LOW);
     }
 }
+
+#endif

@@ -1,6 +1,8 @@
 #ifndef _MYBLE_HPP_
 #define _MYBLE_HPP_
 
+#ifdef BLE_ENABLE
+
 #include "Arduino.h"
 #include <ArduinoBLE.h>
 
@@ -22,5 +24,7 @@ private:
 
     // BLEDevice central;
 };
+
+#endif
 
 #endif
