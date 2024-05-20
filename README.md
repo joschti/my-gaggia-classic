@@ -61,15 +61,15 @@ The project can be edited and compiled online: https://ai2.appinventor.mit.edu.
 
 Use `pio device monitor -f default -f log2file` to log the serial output to a file. For more information about the format, check out `serialout.hpp` or [pio device monitor filter options](https://docs.platformio.org/en/latest/core/userguide/device/cmd_monitor.html#cmd-device-monitor-filters).
 
-### Measurements on Gaggia Classic
-
-Heating (invalid due to poor thermal connection between sensor and boiler):
-- Stops: 83°C
-- Starts: 69°C
-- Stops (again): 75°C?
-
 ## TODO
 - Devcontainer clean up
-- Update measurements
 - Block diagrams (FW, Gaggia)
-- Draft schematic of Gaggia
+- Schematic of Gaggia
+- Features
+    - Load spreading in task
+        - Momentarily, tasks are all started at the same time and have integer multiples to wake up. Meaning the slower tasks need to be handled at the same time as the faster ones. That generates a lot of load at the same time. If the tasks would start at different times, this would be much more balanced. An additional time offset argument should do the trick.
+    - Protection mechanism (Invalid sensor mount): Timeout after 30 s when temperature is not responding
+        - Non-responsiveness: dT < 5°C
+        - Deactivates if T > 60°C
+        - Mask by macro for testing / development purposes
+    - Display temperature delta (trend) on display
