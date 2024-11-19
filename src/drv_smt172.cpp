@@ -156,8 +156,11 @@ void DrvSmt172::onPinEdge(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
     this->firstRisingEdgeTimeUs = this->secondRisingEdgeTimeUs;
     this->secondRisingEdgeTimeUs = nrfx_timer_capture_get(&this->smtTimer, TIMER_CC_CH1);
     this->periodUs = sub_u32_overflow_handled(this->secondRisingEdgeTimeUs, this->firstRisingEdgeTimeUs);
-    this->calcPwmDutyCycle();
-    // nrfx_timer_clear(&this->smtTimer);
+    if (this->periodUs)
+    {
+      // avoid division by 0
+      this->calcPwmDutyCycle();
+    }
   }
   else if (action == NRF_GPIOTE_POLARITY_HITOLO)
   {
