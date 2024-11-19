@@ -18,6 +18,16 @@ public:
     }
   }
 
+  void off(void)
+  {
+    this->led = false;
+  }
+
+  void on(void)
+  {
+    this->led = true;
+  }
+
 private:
   mbed::DigitalOut led;
 };
