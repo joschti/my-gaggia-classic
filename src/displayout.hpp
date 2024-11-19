@@ -19,6 +19,7 @@
 // #define DISPLAY_IO_DC P0_27
 // #define DISPLAY_IO_CS P1_2
 // #define DISPLAY_IO_RST P0_21
+#define DISPLAY_IO_RST 8
 #define DISPLAY_IO_DC 9 // library cannot deal with PinName objects
 #define DISPLAY_IO_CS 10
 
@@ -32,7 +33,7 @@ class DisplayOut : public MyTask
 {
 public:
   DisplayOut(uint32_t msUpdateRate) : MyTask(msUpdateRate),
-                                      display(DISPLAY_IO_CS, DISPLAY_IO_DC)
+                                      display(DISPLAY_IO_CS, DISPLAY_IO_DC, DISPLAY_IO_RST)
   {
   }
 
@@ -66,13 +67,20 @@ public:
       ////////////////////////////////////////////////////////////////
       // display temperature
       ////////////////////////////////////////////////////////////////
+      const int16_t tempTextPosX = 0;
+      const int16_t tempTextPosY = 75;
+
       // remove temperature value from display
-      this->display.setCursor(0, 75);
+      this->display.setCursor(tempTextPosX, tempTextPosY);
+      // int16_t dummyX, dummyY;
+      // uint16_t tempTextWidth, tempTextHeight;
+      // this->display.getTextBounds(this->tempStrBuffer, tempTextPosX, tempTextPosY, &dummyX, &dummyY, &tempTextWidth, &tempTextHeight);
+      // this->display.fillRect(tempTextPosX, tempTextPosY, tempTextWidth, tempTextHeight, DISPLAY_COLOR_BW);
       this->display.setTextColor(DISPLAY_COLOR_BW);
       this->display.print(this->tempStrBuffer);
 
       // write temperature value onto display
-      this->display.setCursor(0, 75);
+      this->display.setCursor(tempTextPosX, tempTextPosY);
       this->display.setTextColor(DISPLAY_COLOR_TEXT);
       sprintf(this->tempStrBuffer, "%4.2f %cC", temp, 0xF7);
       this->display.print(this->tempStrBuffer);
