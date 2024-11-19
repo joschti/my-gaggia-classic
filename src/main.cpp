@@ -23,7 +23,10 @@
 //-----------------------------------------------------------------
 /* Defines */
 // Pins
-#define ALIVE_LED_PIN P0_16
+#define ALIVE_LED_PIN P1_11
+#define HARDFAULT_LED_PIN P1_15
+#define COFFEE_EXTRACTION_ACTIVE_PIN P1_13
+#define COFFEE_EXTRACTION_LED_PIN P1_12
 #define SMT172_RISE_PIN P0_4
 #define SMT172_FALL_PIN P0_5
 #define SMT172_TIMER_INST NRFX_TIMER_INSTANCE(1)
@@ -31,6 +34,7 @@
 
 // Intervals
 #define ALIVE_LED_INTERVAL 1000
+#define COFFEE_EXTRACTION_LED_INTERVAL 250
 #ifdef SERIALOUT_ENABLE
 #define SERIAL_OUTPUT_INTERVAL 500
 #endif
@@ -38,7 +42,7 @@
 #define DISPLAY_OUTPUT_INTERVAL 1000
 #endif
 #ifdef BLE_ENABLE
-#define BLE_OUTPUT_INTERVAL 500
+#define BLE_OUTPUT_INTERVAL 2000
 #endif
 
 //-----------------------------------------------------------------
@@ -48,7 +52,10 @@ static void smtGpioteInterruptHandler(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity
 //-----------------------------------------------------------------
 /* Global variables */
 AliveLed aliveLed(ALIVE_LED_PIN, ALIVE_LED_INTERVAL);
-ControlHeater ctrlHeater(CTRL_HEATER_PIN, CTRL_HEATER_TWO_POINT);
+mbed::DigitalOut hardFaultLed(HARDFAULT_LED_PIN, true); // pull-down to GND for indication
+mbed::DigitalIn coffeeExtractionActive(COFFEE_EXTRACTION_ACTIVE_PIN, PullDown);
+AliveLed coffeeExtractionLed(COFFEE_EXTRACTION_LED_PIN, COFFEE_EXTRACTION_LED_INTERVAL);
+ControlHeater ctrlHeater(CTRL_HEATER_PIN, CTRL_HEATER_PID);
 #ifdef SERIALOUT_ENABLE
 SerialOut serialOut(SERIAL_OUTPUT_INTERVAL);
 #endif
@@ -92,18 +99,27 @@ void loop()
   float temp = smt.getTemperature();
 
   aliveLed.taskHandler(currMs);
+  if (coffeeExtractionActive)
+  {
+    // activate control boost mode
+    // expect a huge temperature drop because of coffee extraction
+    ctrlHeater.enterBoostMode();
+    coffeeExtractionLed.taskHandler(currMs);
+  }
+  else
+  {
+    ctrlHeater.exitBoostMode();
+    // force led off (by setting to true)
+    coffeeExtractionLed.on();
+  }
 #ifdef SERIALOUT_ENABLE
-  serialOut.taskHandler(currMs, interfaceBle.payload.temp, ctrlHeater.isHeaterActive());
+  serialOut.taskHandler(currMs, temp, ctrlHeater.isHeaterActive());
 #endif
 #ifdef DISPLAYOUT_ENABLE
-  displayOut.taskHandler(currMs, interfaceBle.payload.temp);
+  displayOut.taskHandler(currMs, temp);
 #endif
 #ifdef BLE_ENABLE
-  if (temp != interfaceBle.payload.temp)
-  {
-    interfaceBle.payload.temp = temp;
-    interfaceBle.update.temp = true;
-  }
+  interfaceBle.payload.temp = temp;
   myble.taskHandler(currMs, interfaceBle);
 #endif
   ctrlHeater.taskHandler(currMs, temp);
@@ -114,4 +130,19 @@ void loop()
 static void smtGpioteInterruptHandler(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action)
 {
   smt.onPinEdge(pin, action);
+}
+
+void HardFault_Handler(void)
+{
+  // hardfault indication
+  hardFaultLed = !hardFaultLed;
+  ctrlHeater.stopHeater();
+
+  // until we go for the system reset option or watchdog solution
+  while (true)
+    ;
+
+  // let's try a system reset
+  // todo: test this, I want to know if we really experience hardfaults
+  // NVIC_SystemReset();
 }
