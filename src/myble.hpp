@@ -19,6 +19,8 @@ public:
 private:
     BLEService envSenseService;
     BLECharacteristic tempCharacteristic;
+    BLECharacteristic configCharacteristic;
+    uint8_t cfgCount;
     //   BLECharacteristic humidityCharacteristic;
     //   BLECharacteristic ledControlCharacteristic;
 
