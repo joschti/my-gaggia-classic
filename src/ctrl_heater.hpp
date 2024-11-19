@@ -10,7 +10,6 @@
 typedef enum
 {
   CTRL_HEATER_TWO_POINT,
-  CTRL_HEATER_P,
   CTRL_HEATER_PID,
   CTRL_HEATER_KALMAN
 } ctrl_heater_t;
@@ -21,16 +20,24 @@ public:
   ControlHeater(PinName activateHeaterPin, ctrl_heater_t type);
   void taskHandler(uint32_t currMs, float temp);
   bool isHeaterActive();
+  void stopHeater(void);
+
+  // use boost mode whenever we know that the temperature will drop a lot
+  void enterBoostMode(void);
+  void exitBoostMode(void);
 
 private:
   mbed::DigitalOut activateHeater;
   ctrl_heater_t type;
+  bool isBoostActive;
+
+  bool isTemperatureInValidRange(float temp);
 
   //! two-point temperature controller implementation
   void ctrl_two_point(float temp);
 
   //! P temperature controller implementation
-  void ctrl_proportional(float temp);
+  void ctrl_pid(float temp);
 };
 
 #endif
