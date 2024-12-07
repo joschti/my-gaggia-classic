@@ -7,8 +7,9 @@
 #include "mytask.hpp"
 
 #include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_ILI9341.h>
+// #include <Adafruit_GFX.h>
+// #include <Adafruit_ILI9341.h>
+#include "drv_ili9341.h"
 
 //-----------------------------------------------------------------
 /* Defines */
@@ -16,16 +17,14 @@
 // #define DISPLAY_IO_MOSI P1_1
 // #define DISPLAY_IO_MISO P1_8
 // #define DISPLAY_IO_SCLK P0_13
-// #define DISPLAY_IO_DC P0_27
-// #define DISPLAY_IO_CS P1_2
-// #define DISPLAY_IO_RST P0_21
-#define DISPLAY_IO_RST 8
-#define DISPLAY_IO_DC 9 // library cannot deal with PinName objects
-#define DISPLAY_IO_CS 10
+#define DISPLAY_IO_DC P0_27
+#define DISPLAY_IO_CS P1_2
+#define DISPLAY_IO_RST P0_21
 
 // Others
-#define DISPLAY_COLOR_BW ILI9341_BLACK
-#define DISPLAY_COLOR_TEXT ILI9341_WHITE
+// #define DISPLAY_IO_SPI_FREQ 10e6
+#define DISPLAY_COLOR_BW DRV_ILI9341_BLACK
+#define DISPLAY_COLOR_TEXT DRV_ILI9341_WHITE
 
 //-----------------------------------------------------------------
 /* Classes */
@@ -33,7 +32,7 @@ class DisplayOut : public MyTask
 {
 public:
   DisplayOut(uint32_t msUpdateRate) : MyTask(msUpdateRate),
-                                      display(DISPLAY_IO_CS, DISPLAY_IO_DC, DISPLAY_IO_RST)
+                                      display(this->pixels, DISPLAY_IO_DC, DISPLAY_IO_RST, DISPLAY_IO_CS)
   {
   }
 
@@ -42,19 +41,27 @@ public:
     // init
     this->display.begin();
 
+    // set the background in memory
+    memset(this->pixels, DISPLAY_COLOR_BW, DRV_ILI9341_TFTHEIGHT * DRV_ILI9341_TFTWIDTH);
+
+#ifndef DRV_ILI9341_RAM_FOR_SPEED
     // black start screen
     this->display.fillScreen(DISPLAY_COLOR_BW);
+#endif
 
     // settings
     this->display.setTextSize(3);
     this->display.setTextColor(DISPLAY_COLOR_TEXT);
     this->display.setRotation(1);
 
-    // static display
+    // static display part
     this->display.setCursor(0, 0);
     this->display.println("My Gaggia Classic");
     this->display.setCursor(0, 50);
     this->display.println("Temperature:");
+
+    // bring memory image to display
+    this->display.drawBuffer(this->pixels);
   }
 
   void taskHandler(uint32_t currMs, float temp)
@@ -84,12 +91,16 @@ public:
       this->display.setTextColor(DISPLAY_COLOR_TEXT);
       sprintf(this->tempStrBuffer, "%4.2f %cC", temp, 0xF7);
       this->display.print(this->tempStrBuffer);
+
+      // bring memory image to display
+      this->display.drawBuffer(this->pixels);
     }
   }
 
 private:
-  Adafruit_ILI9341 display;
+  DrvIli9341 display;
   char tempStrBuffer[20];
+  uint16_t pixels[DRV_ILI9341_TFTHEIGHT * DRV_ILI9341_TFTWIDTH];
 };
 
 #endif
