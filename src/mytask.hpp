@@ -6,28 +6,13 @@
 class MyTask
 {
 public:
-  MyTask(uint32_t msUpdateRate) : msUpdateRate(msUpdateRate)
-  {
-    this->prevMsUpdate = 0;
-  }
-
-  bool timeHandler(uint32_t currMs)
-  {
-    uint32_t msDiff = currMs - this->prevMsUpdate;
-    if (msDiff > this->msUpdateRate)
-    {
-      this->prevMsUpdate = currMs;
-      return true;
-    }
-    return false;
-  }
-
-  uint32_t getMsUpdateRate()
-  {
-    return this->msUpdateRate;
-  }
+  MyTask(uint32_t msUpdateRate);
+  bool timeHandler();
+  uint32_t getMsUpdateRate();
 
 private:
+  // char[3] taskName;
+  uint8_t taskId;
   uint32_t msUpdateRate;
   uint32_t prevMsUpdate;
 };

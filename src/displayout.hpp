@@ -64,9 +64,9 @@ public:
     this->display.drawBuffer(this->pixels);
   }
 
-  void taskHandler(uint32_t currMs, float temp)
+  void taskHandler(float temp)
   {
-    if (this->timeHandler(currMs))
+    if (this->timeHandler())
     {
       // we only handle variable objects for execution speed.
       // display is slow.

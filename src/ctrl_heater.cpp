@@ -26,9 +26,9 @@ ControlHeater::ControlHeater(PinName activateHeaterPin, ctrl_heater_t type)
 {
 }
 
-void ControlHeater::taskHandler(uint32_t currMs, float temp)
+void ControlHeater::taskHandler(float temp)
 {
-  if (this->timeHandler(currMs))
+  if (this->timeHandler())
   {
     if (!isTemperatureInValidRange(temp))
     {

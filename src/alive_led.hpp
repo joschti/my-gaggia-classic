@@ -10,9 +10,9 @@ class AliveLed : public MyTask
 public:
   AliveLed(PinName ledPin, uint32_t msUpdateRate) : MyTask(msUpdateRate), led(ledPin) {}
 
-  void taskHandler(uint32_t currMs)
+  void taskHandler()
   {
-    if (this->timeHandler(currMs))
+    if (this->timeHandler())
     {
       this->led = !this->led;
     }

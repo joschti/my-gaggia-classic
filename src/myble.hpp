@@ -14,7 +14,7 @@ class MyBle : public MyTask
 public:
     MyBle(uint32_t msUpdateRate);
     void init();
-    void taskHandler(uint32_t currMs, interface_ble_t payload);
+    void taskHandler(interface_ble_t payload);
 
 private:
     BLEService envSenseService;

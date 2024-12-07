@@ -18,7 +18,7 @@ class ControlHeater : public MyTask
 {
 public:
   ControlHeater(PinName activateHeaterPin, ctrl_heater_t type);
-  void taskHandler(uint32_t currMs, float temp);
+  void taskHandler(float temp);
   bool isHeaterActive();
   void stopHeater(void);
 

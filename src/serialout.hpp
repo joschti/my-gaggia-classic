@@ -13,9 +13,9 @@ public:
   {
   }
 
-  void taskHandler(uint32_t currMs, float temp, bool heaterActive)
+  void taskHandler(float temp, bool heaterActive)
   {
-    if (this->timeHandler(currMs))
+    if (this->timeHandler())
     {
       char buffer[70];
       sprintf(buffer, "%4.2f,%d\n", temp, heaterActive);

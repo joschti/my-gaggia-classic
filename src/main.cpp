@@ -87,24 +87,15 @@ void loop()
 {
   static interface_ble_t interfaceBle = {0};
 
-  static uint32_t lastMs = 0;
-  uint32_t currMs = millis();
-  if (currMs < lastMs)
-  {
-#ifdef SERIALOUT_ENABLE
-    Serial.println("ovf ms");
-#endif
-  }
-
   float temp = smt.getTemperature();
 
-  aliveLed.taskHandler(currMs);
+  aliveLed.taskHandler();
   if (coffeeExtractionActive)
   {
     // activate control boost mode
     // expect a huge temperature drop because of coffee extraction
     ctrlHeater.enterBoostMode();
-    coffeeExtractionLed.taskHandler(currMs);
+    coffeeExtractionLed.taskHandler();
   }
   else
   {
@@ -113,18 +104,16 @@ void loop()
     coffeeExtractionLed.on();
   }
 #ifdef SERIALOUT_ENABLE
-  serialOut.taskHandler(currMs, temp, ctrlHeater.isHeaterActive());
+  serialOut.taskHandler(temp, ctrlHeater.isHeaterActive());
 #endif
 #ifdef DISPLAYOUT_ENABLE
-  displayOut.taskHandler(currMs, temp);
+  displayOut.taskHandler(temp);
 #endif
 #ifdef BLE_ENABLE
   interfaceBle.payload.temp = temp;
-  myble.taskHandler(currMs, interfaceBle);
+  myble.taskHandler(interfaceBle);
 #endif
-  ctrlHeater.taskHandler(currMs, temp);
-
-  lastMs = currMs;
+  ctrlHeater.taskHandler(temp);
 }
 
 static void smtGpioteInterruptHandler(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action)

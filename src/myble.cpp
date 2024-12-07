@@ -51,7 +51,7 @@ void MyBle::init()
     BLE.advertise();
 }
 
-void MyBle::taskHandler(uint32_t currMs, interface_ble_t interface)
+void MyBle::taskHandler(interface_ble_t interface)
 {
     // if a central is connected to peripheral
     BLEDevice central = BLE.central();
@@ -60,7 +60,7 @@ void MyBle::taskHandler(uint32_t currMs, interface_ble_t interface)
         // turn on the LED to indicate the connection
         digitalWrite(LED_BUILTIN, HIGH);
 
-        if (this->timeHandler(currMs))
+        if (this->timeHandler())
         {
             // send temperature value
             this->tempCharacteristic.writeValue(*(uint32_t *)&interface.payload.temp, false);
