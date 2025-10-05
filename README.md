@@ -66,10 +66,11 @@ Use `pio device monitor -f default -f log2file` to log the serial output to a fi
 - Block diagrams (FW, Gaggia)
 - Schematic of Gaggia
 - Features
-    - Load spreading in task
-        - Momentarily, tasks are all started at the same time and have integer multiples to wake up. Meaning the slower tasks need to be handled at the same time as the faster ones. That generates a lot of load at the same time. If the tasks would start at different times, this would be much more balanced. An additional time offset argument should do the trick.
     - Protection mechanism (Invalid sensor mount): Timeout after 30 s when temperature is not responding
         - Non-responsiveness: dT < 5°C
         - Deactivates if T > 60°C
         - Mask by macro for testing / development purposes
     - Display temperature delta (trend) on display
+    - From SerialOut class to SerialLogger class
+        - Extend functionality?
+    - `DEBUG_ACTIVE` define-switch for on the fly debugging
