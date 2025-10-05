@@ -4228,6 +4228,12 @@
 		(uuid "46ddae9d-cfec-41bb-8e3a-0cd5284d482d")
 	)
 	(junction
+		(at 64.77 105.41)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b45dd49c-268b-4433-a750-6b7a34e940f8")
+	)
+	(junction
 		(at 38.1 105.41)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4244,12 +4250,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "df3b664b-f67a-4349-ab71-a62b51a1e922")
-	)
-	(junction
-		(at 64.77 105.41)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e0f4e4b5-d45e-4b95-a250-a1dbd75bb543")
 	)
 	(no_connect
 		(at 41.91 78.74)
@@ -4285,7 +4285,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 110.49) (xy 93.98 110.49)
+			(xy 83.82 78.74) (xy 87.63 78.74)
 		)
 		(stroke
 			(width 0)
@@ -4313,16 +4313,6 @@
 		)
 		(uuid "1c5d6f0d-a9a7-4baf-a378-1d09b2e92d63")
 	)
-	(wire
-		(pts
-			(xy 64.77 105.41) (xy 82.55 105.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "25086d11-747e-4c8b-8463-cde711791687")
-	)
 	(polyline
 		(pts
 			(xy 121.92 53.34) (xy 121.92 186.69)
@@ -4345,7 +4335,7 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 116.84) (xy 156.21 116.84)
+			(xy 160.02 101.6) (xy 157.48 101.6)
 		)
 		(stroke
 			(width 0)
@@ -4355,23 +4345,13 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 124.46) (xy 93.98 124.46)
+			(xy 76.2 74.93) (xy 76.2 78.74)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "349c2c9d-9b79-4b02-bd9b-06e9a71f5821")
-	)
-	(wire
-		(pts
-			(xy 82.55 120.65) (xy 82.55 140.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3a19f1d7-d540-4b28-9492-ce01f20b65de")
+		(uuid "354bf92e-5f51-40b7-9248-3e5e671ee5a4")
 	)
 	(wire
 		(pts
@@ -4395,23 +4375,43 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 120.65) (xy 93.98 120.65)
+			(xy 160.02 123.19) (xy 157.48 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5324f17d-dbb8-470f-9e03-afe2051bda21")
+	)
+	(wire
+		(pts
+			(xy 82.55 105.41) (xy 82.55 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "56f08162-8308-4f62-81b1-fba2824ba251")
+	)
+	(wire
+		(pts
+			(xy 64.77 105.41) (xy 82.55 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5eab88c1-7ed1-4ed4-a946-f78737d9bdcf")
+	)
+	(wire
+		(pts
+			(xy 83.82 88.9) (xy 87.63 88.9)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "60a0ec64-32f0-4896-b444-768e33086352")
-	)
-	(wire
-		(pts
-			(xy 86.36 106.68) (xy 86.36 110.49)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "633f7827-7ec7-4fb5-9f2b-4311c7094ded")
 	)
 	(wire
 		(pts
@@ -4465,13 +4465,13 @@
 	)
 	(wire
 		(pts
-			(xy 82.55 105.41) (xy 82.55 110.49)
+			(xy 76.2 92.71) (xy 76.2 88.9)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7aab0a95-967a-45d3-b44c-ba5c4cad14e7")
+		(uuid "7aa3379c-5ddc-4678-8ac5-04b4708b8201")
 	)
 	(wire
 		(pts
@@ -4485,13 +4485,13 @@
 	)
 	(wire
 		(pts
-			(xy 95.25 106.68) (xy 86.36 106.68)
+			(xy 82.55 118.11) (xy 82.55 140.97)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8bf3a899-0cf6-4808-9276-79952c9502e3")
+		(uuid "814c19f1-61e5-4622-8467-278e6fdaf1ef")
 	)
 	(wire
 		(pts
@@ -4555,6 +4555,16 @@
 	)
 	(wire
 		(pts
+			(xy 87.63 74.93) (xy 76.2 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b7700188-171d-4d81-8082-a6b445a88010")
+	)
+	(wire
+		(pts
 			(xy 38.1 140.97) (xy 38.1 142.24)
 		)
 		(stroke
@@ -4615,16 +4625,6 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 124.46) (xy 86.36 120.65)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f3e05f2e-ea6d-4a20-beed-6bf58e7db75a")
-	)
-	(wire
-		(pts
 			(xy 144.78 153.67) (xy 154.94 153.67)
 		)
 		(stroke
@@ -4635,6 +4635,16 @@
 	)
 	(wire
 		(pts
+			(xy 76.2 92.71) (xy 87.63 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f7c53e85-7616-4cef-8a86-3d4f16d429ef")
+	)
+	(wire
+		(pts
 			(xy 38.1 152.4) (xy 38.1 153.67)
 		)
 		(stroke
@@ -4642,6 +4652,28 @@
 			(type default)
 		)
 		(uuid "fbcc17d9-3e27-4d54-a997-ea625e2e46a7")
+	)
+	(global_label "PUMP ENABLE"
+		(shape input)
+		(at 160.02 123.19 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "00e71783-59c2-4404-b7d1-99ab599465a9")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 176.3099 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(global_label "DISPLAY_RST"
 		(shape input)
@@ -4667,7 +4699,7 @@
 	)
 	(global_label "N HEATER ENABLE"
 		(shape input)
-		(at 148.59 121.92 180)
+		(at 149.86 106.68 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4677,7 +4709,7 @@
 		)
 		(uuid "04512290-29fc-4522-8515-a2d6eba295e3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 128.3692 121.92 0)
+			(at 129.6392 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4777,7 +4809,7 @@
 	)
 	(global_label "HEATER ENABLE"
 		(shape input)
-		(at 158.75 116.84 0)
+		(at 160.02 101.6 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4787,7 +4819,7 @@
 		)
 		(uuid "2db92fc9-1374-4d88-8b58-08402ea5d047")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 176.6727 116.84 0)
+			(at 177.9427 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4975,7 +5007,7 @@
 	)
 	(global_label "COFFEE EXTRACT"
 		(shape input)
-		(at 93.98 124.46 0)
+		(at 87.63 92.71 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4985,7 +5017,7 @@
 		)
 		(uuid "82492328-8dd4-4b4a-84c2-88b26ccc5f39")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 112.9308 124.46 0)
+			(at 106.5808 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5008,6 +5040,28 @@
 		(uuid "8416498d-c7c7-41eb-aecb-9599c040e829")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 247.65 134.9005 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "PUMP ENABLE"
+		(shape input)
+		(at 97.79 118.11 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8d678f15-e5d5-4c36-8f4b-12de9c0107b0")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 114.0799 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5127,6 +5181,28 @@
 			)
 		)
 	)
+	(global_label "N PUMP ENABLE"
+		(shape input)
+		(at 149.86 128.27 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a1591dc4-d56b-48a0-a05c-455ba204d462")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 131.272 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "TEMP PWM"
 		(shape input)
 		(at 180.34 74.93 180)
@@ -5173,7 +5249,7 @@
 	)
 	(global_label "HEATER ON"
 		(shape input)
-		(at 93.98 110.49 0)
+		(at 87.63 78.74 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5183,7 +5259,7 @@
 		)
 		(uuid "bf060a17-5dd4-459a-9a54-285208743339")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 107.5485 110.49 0)
+			(at 101.1985 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5507,7 +5583,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 95.25 106.68 270)
+		(at 87.63 74.93 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5516,7 +5592,7 @@
 		(fields_autoplaced yes)
 		(uuid "0d468b90-2c2a-46b6-be87-8c332dcb650a")
 		(property "Reference" "#PWR016"
-			(at 91.44 106.68 0)
+			(at 83.82 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5525,7 +5601,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 99.06 106.6799 90)
+			(at 91.44 74.9299 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5534,7 +5610,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 95.25 106.68 0)
+			(at 87.63 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5543,7 +5619,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 95.25 106.68 0)
+			(at 87.63 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5552,7 +5628,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 95.25 106.68 0)
+			(at 87.63 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5637,6 +5713,83 @@
 			(project ""
 				(path "/76e39626-79eb-452f-9eec-2572a12005c9"
 					(reference "F1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Relay_SolidState:S102S02")
+		(at 90.17 115.57 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1be84f95-1af7-4ec0-9114-085f6177c64a")
+		(property "Reference" "U4"
+			(at 90.17 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SSR D2410-10"
+			(at 90.17 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 95.25 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 90.17 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "SSR: D2410-10 (Random Access)"
+			(at 90.17 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8f04da9c-721e-4c2f-9645-16b5fd75f6f8")
+		)
+		(pin "3"
+			(uuid "62ac8701-b0a6-44e3-b478-ef889ce5fbd0")
+		)
+		(pin "2"
+			(uuid "c1aa603c-9b47-4b6b-9476-fd31c8b70b2d")
+		)
+		(pin "4"
+			(uuid "bbc0fb80-f080-41c6-bafc-14ace3840b05")
+		)
+		(instances
+			(project "my_gaggia_classic_hw"
+				(path "/76e39626-79eb-452f-9eec-2572a12005c9"
+					(reference "U4")
 					(unit 1)
 				)
 			)
@@ -5978,26 +6131,26 @@
 		)
 	)
 	(symbol
-		(lib_id "power:NEUT")
-		(at 93.98 120.65 270)
+		(lib_id "Simulation_SPICE:NMOS")
+		(at 154.94 128.27 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "4cb86aec-7c82-43c2-84fb-0dbd29df41cc")
-		(property "Reference" "#PWR05"
-			(at 90.17 120.65 0)
+		(uuid "4b2d497c-d888-4265-99b0-c68aa2c0bcee")
+		(property "Reference" "Q2"
+			(at 161.29 126.9999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
+				(justify left)
 			)
 		)
-		(property "Value" "NEUT"
-			(at 97.79 120.6499 90)
+		(property "Value" "NMOS, TN0702N3-G"
+			(at 161.29 129.5399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6006,7 +6159,80 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 93.98 120.65 0)
+			(at 160.02 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://ww1.microchip.com/downloads/en/DeviceDoc/TN0702%20C080813.pdf"
+			(at 154.94 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "N-channel MOSFET,  TN0702N3-G"
+			(at 154.94 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "a0060bfe-eccd-424c-ae7d-0b5f5167efaa")
+		)
+		(pin "3"
+			(uuid "d2e4c72a-e4d3-4155-ac72-21fc26f10a54")
+		)
+		(pin "1"
+			(uuid "6483ac62-2a33-418d-893e-54dc8c33609e")
+		)
+		(instances
+			(project "my_gaggia_classic_hw"
+				(path "/76e39626-79eb-452f-9eec-2572a12005c9"
+					(reference "Q2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:NEUT")
+		(at 87.63 88.9 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4cb86aec-7c82-43c2-84fb-0dbd29df41cc")
+		(property "Reference" "#PWR05"
+			(at 83.82 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "NEUT"
+			(at 91.44 88.8999 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 87.63 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6015,7 +6241,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 93.98 120.65 0)
+			(at 87.63 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6024,7 +6250,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"NEUT\""
-			(at 93.98 120.65 0)
+			(at 87.63 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6183,7 +6409,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 156.21 127 0)
+		(at 157.48 111.76 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6192,7 +6418,7 @@
 		(fields_autoplaced yes)
 		(uuid "5d78c53f-4a6b-4caf-9927-62c2bfce2171")
 		(property "Reference" "#PWR012"
-			(at 156.21 133.35 0)
+			(at 157.48 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6201,7 +6427,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 156.21 132.08 0)
+			(at 157.48 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6209,7 +6435,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 156.21 127 0)
+			(at 157.48 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6218,7 +6444,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 156.21 127 0)
+			(at 157.48 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6227,7 +6453,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 156.21 127 0)
+			(at 157.48 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6242,6 +6468,73 @@
 			(project "my_gaggia_classic_hw"
 				(path "/76e39626-79eb-452f-9eec-2572a12005c9"
 					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 97.79 113.03 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "67fff1db-59f2-48a3-8ed2-cd0e5e772378")
+		(property "Reference" "#PWR020"
+			(at 93.98 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 101.6 113.0299 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 97.79 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 97.79 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 97.79 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "73fc6119-221d-4a5c-b06e-333a1464958f")
+		)
+		(instances
+			(project "my_gaggia_classic_hw"
+				(path "/76e39626-79eb-452f-9eec-2572a12005c9"
+					(reference "#PWR020")
 					(unit 1)
 				)
 			)
@@ -6326,7 +6619,7 @@
 	)
 	(symbol
 		(lib_id "Simulation_SPICE:NMOS")
-		(at 153.67 121.92 0)
+		(at 154.94 106.68 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6335,7 +6628,7 @@
 		(fields_autoplaced yes)
 		(uuid "7b43edd9-a424-48b5-98cb-7b6dec10b25f")
 		(property "Reference" "Q1"
-			(at 160.02 120.6499 0)
+			(at 161.29 105.4099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6344,7 +6637,7 @@
 			)
 		)
 		(property "Value" "NMOS, TN0702N3-G"
-			(at 160.02 123.1899 0)
+			(at 161.29 107.9499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6353,7 +6646,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 158.75 119.38 0)
+			(at 160.02 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6362,7 +6655,7 @@
 			)
 		)
 		(property "Datasheet" "https://ww1.microchip.com/downloads/en/DeviceDoc/TN0702%20C080813.pdf"
-			(at 153.67 134.62 0)
+			(at 154.94 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6371,7 +6664,7 @@
 			)
 		)
 		(property "Description" "N-channel MOSFET,  TN0702N3-G"
-			(at 153.67 121.92 0)
+			(at 154.94 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6392,6 +6685,72 @@
 			(project ""
 				(path "/76e39626-79eb-452f-9eec-2572a12005c9"
 					(reference "Q1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 157.48 133.35 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7bebfbff-5b5c-40b4-aae6-a9bfc0a15784")
+		(property "Reference" "#PWR021"
+			(at 157.48 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 157.48 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 157.48 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 157.48 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 157.48 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "95c7ea5b-967d-4de0-a2a1-41f8fff1af1f")
+		)
+		(instances
+			(project "my_gaggia_classic_hw"
+				(path "/76e39626-79eb-452f-9eec-2572a12005c9"
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)
@@ -7538,7 +7897,7 @@
 	)
 	(symbol
 		(lib_id "coffee_machine:SW_DPDT_Lamp")
-		(at 80.01 115.57 90)
+		(at 73.66 83.82 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7547,7 +7906,7 @@
 		(fields_autoplaced yes)
 		(uuid "dc245b02-25cb-42e4-a6b4-d357bdc65c0e")
 		(property "Reference" "SW2"
-			(at 93.98 114.2999 90)
+			(at 87.63 82.5499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7556,7 +7915,7 @@
 			)
 		)
 		(property "Value" "Coffee switch"
-			(at 93.98 116.8399 90)
+			(at 87.63 85.0899 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7565,7 +7924,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 72.39 115.57 0)
+			(at 66.04 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7574,7 +7933,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 86.36 115.57 0)
+			(at 80.01 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7583,7 +7942,7 @@
 			)
 		)
 		(property "Description" "SW_DPDT_Lamp Double Pole Double Throw (DPDT) switch with signal lamp"
-			(at 88.9 115.57 0)
+			(at 82.55 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
