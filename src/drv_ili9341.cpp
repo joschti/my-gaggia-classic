@@ -167,8 +167,8 @@ inline void DrvIli9341::copyMulti(uint8_t *img, uint16_t num)
   }
 }
 // ----------------------------------------------------------
-DrvIli9341::DrvIli9341(uint16_t *pixels, PinName dc, PinName rst, PinName cs) : Adafruit_GFX(DRV_ILI9341_TFTWIDTH, DRV_ILI9341_TFTHEIGHT),
-                                                                                csGpio(cs, false), dcGpio(dc, false), rstGpio(rst, false)
+DrvIli9341::DrvIli9341(uint16_t *pixels, PinName dc, PinName rst, PinName cs, PinName bl) : Adafruit_GFX(DRV_ILI9341_TFTWIDTH, DRV_ILI9341_TFTHEIGHT),
+                                                                                            csGpio(cs, false), dcGpio(dc, false), rstGpio(rst, false), blGpio(bl, true)
 {
   this->pixels = pixels;
 }
@@ -181,6 +181,8 @@ void DrvIli9341::init()
   spiSettings = SPISettings(16000000, MSBFIRST, SPI_MODE0);
 
   // start device
+  this->rstGpio = false;
+  delay(50);
   this->rstGpio = true;
   delay(150);
 

@@ -6,9 +6,6 @@
 #include "Arduino.h"
 #include "mytask.hpp"
 
-#include <Wire.h>
-// #include <Adafruit_GFX.h>
-// #include <Adafruit_ILI9341.h>
 #include "drv_ili9341.h"
 
 //-----------------------------------------------------------------
@@ -20,6 +17,7 @@
 #define DISPLAY_IO_DC P0_27
 #define DISPLAY_IO_CS P1_2
 #define DISPLAY_IO_RST P0_21
+#define DISPLAY_IO_BL P0_23
 
 // Others
 // #define DISPLAY_IO_SPI_FREQ 10e6
@@ -32,7 +30,7 @@ class DisplayOut : public MyTask
 {
 public:
   DisplayOut(uint32_t msUpdateRate) : MyTask(msUpdateRate),
-                                      display(this->pixels, DISPLAY_IO_DC, DISPLAY_IO_RST, DISPLAY_IO_CS)
+                                      display(this->pixels, DISPLAY_IO_DC, DISPLAY_IO_RST, DISPLAY_IO_CS, DISPLAY_IO_BL)
   {
   }
 

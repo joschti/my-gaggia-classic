@@ -5,9 +5,6 @@
 // trade speed for memory
 #define DRV_ILI9341_RAM_FOR_SPEED
 
-// put unused code behind this
-// #define DRV_ILI9341_UNUSED
-
 // define when CS pin is always connected to the ground
 #define DRV_ILI9341_CS_ALWAYS_LOW
 // ------------------------------
@@ -42,7 +39,7 @@ class DrvIli9341 : public Adafruit_GFX
 {
 
 public:
-  DrvIli9341(uint16_t *pixels, PinName DC, PinName RST, PinName CS);
+  DrvIli9341(uint16_t *pixels, PinName dc, PinName rst, PinName cs, PinName bl);
 
   void init();
   void begin() { init(); }
@@ -67,7 +64,7 @@ private:
   uint8_t csMask, dcMask;
   volatile uint8_t *csPort, *dcPort;
   uint16_t *pixels;
-  mbed::DigitalOut csGpio, dcGpio, rstGpio;
+  mbed::DigitalOut csGpio, dcGpio, rstGpio, blGpio;
 
   void handleRotation(int16_t *x, int16_t *y);
 };
